@@ -26,9 +26,7 @@ The original dataset has seven columns:
 
 - `Group`: groups that participants are belonged to [four groups: __Healthy Control, Infected Patients, Long-term Symptoms, Short-term Symptoms__].
 
-<center>
-![](/Users/yongzhewang/Desktop/Dataset Shape.jpeg)
-</center>
+![](https://github.com/YzwIsALaity/Radar-Chart/blob/1e5dc30a259b09e851af3e60d2231e52b84a03d5/Dataset%20Shape.jpeg)
 
 In the radar chart, we want to __show average levels of five dimensions for four groups__ so we need to do data preprocessing first. We will `dplyr` and `tidyr` packages for this process.
 ```
@@ -44,15 +42,11 @@ Dt.Summary <-
 kable(Dt.Summary)
 ```
 
-<center>
-![](/Users/yongzhewang/Desktop/Final Dataset Shape 1.jpeg)
-</center>
+![](https://github.com/YzwIsALaity/Radar-Chart/blob/1e5dc30a259b09e851af3e60d2231e52b84a03d5/Final%20Dataset%20Shape%201.jpeg)
 
 After data preprocessing, the dataset used for creating a radar chart will only include mean scores of five dimensions for different groups. However, the required format of the dataset for radar chart, using the function in `fmsb` package, need to __attach two rows at the top of the above dataset--one is for minimum score and another is for maximum score__.
 
-<center>
-![](/Users/yongzhewang/Desktop/Final Dataset Shape 2.jpeg)
-</center>
+![](https://github.com/YzwIsALaity/Radar-Chart/blob/1e5dc30a259b09e851af3e60d2231e52b84a03d5/Final%20Dataset%20Shape%202.jpeg)
 
 The above one is the __final dataset__ that we are going to use for creating a radar chart.
 
@@ -122,15 +116,13 @@ legend("right",        # we put the legend on the right of the radar chart but o
 par(op) # this command is used to perform the setup of margin for radar chart
 ```
 
-<center>
-![](/Users/yongzhewang/Desktop/Radar Plot (Single).jpeg)
-</center>
+![](https://github.com/YzwIsALaity/Radar-Chart/blob/1e5dc30a259b09e851af3e60d2231e52b84a03d5/Radar%20Plot%20(Single).jpeg)
 
 Since the `radarchart()` is based on the basic `plot()` in the R, __all non-data components (e.g. point, line, text, color, etc.) follow the guidance of__ `plot()`. This means parameter choices for `pcol`,  `pfcol`, `cglcol`, ..... follow the guidance of `plot()`.
 
 ## 3. Multiple radar charts
 In the next step, we are going to put multiple radar charts together if they all share the same legend. This is one is a little bit complex than the single one but it is still acceptable. __The basic logic for putting multiple radar charts in a row is first to create different radar charts separately and then attach an empty plot including the legend only to a row of radar plots.__ 
-```{r}
+```
 # arrange positions for multiple radar charts and legends ###################################################
 par(mfrow = c(1, 3)) # mfrow = c(1,3) means we want to put plots/legends in 1 row and each plot/legend
                      # occupies 1 column so totally 3 columns (2 radar charts + 1 legend) 
@@ -180,9 +172,7 @@ legend('left',  # this 'left' means we want to put the legend on the left side o
 par(op)
 ```
 
-<center>
-![](/Users/yongzhewang/Desktop/Radar Plot (Multiple).jpeg)
-</center>
+![](https://github.com/YzwIsALaity/Radar-Chart/blob/1e5dc30a259b09e851af3e60d2231e52b84a03d5/Radar%20Plot%20(Multiple).jpeg)
 
 The above is the final version of radar charts and similar to other plots in R, the final size and resolution of the figure can be adjusted when you are going to output it from R. Since the `radarchart()` in `fmsb` package is based on the basic `plot()` function in R, it provides users more flexible way to make choices for non-data components (e.g. legends, texts, colors, etc.).
 
